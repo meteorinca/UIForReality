@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reality Interface Buttons</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="title-block">
+        <h1>Reality Interface Buttons</h1>
+        <p class="subtitle">
+          A memory and practice board for Scott Adams’ “User Interface for Reality”
+        </p>
+      </div>
+
+      <div class="top-actions">
+        <button id="randomBtn" class="btn primary">Random Button</button>
+        <button id="showFavoritesBtn" class="btn">Show Favorites</button>
+        <button id="showAllBtn" class="btn ghost">Show All</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-grid">
+    <section class="left-panel">
+      <div class="panel controls">
+        <div class="search-row">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search buttons, examples, or prompts..."
+            aria-label="Search buttons"
+          />
+        </div>
+
+        <div class="filter-row">
+          <label for="categoryFilter">Filter:</label>
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+            <option value="foundation">Foundation</option>
+            <option value="motivation">Motivation</option>
+            <option value="attention">Attention</option>
+            <option value="persuasion">Persuasion</option>
+            <option value="cognition">Cognition</option>
+          </select>
+        </div>
+
+        <div class="mini-legend">
+          <span class="legend-chip foundation">Foundation</span>
+          <span class="legend-chip motivation">Motivation</span>
+          <span class="legend-chip attention">Attention</span>
+          <span class="legend-chip persuasion">Persuasion</span>
+          <span class="legend-chip cognition">Cognition</span>
+        </div>
+      </div>
+
+      <div class="panel board-panel">
+        <div class="board-header">
+          <h2>Key Interface Buttons</h2>
+          <p>Click any card to study it. Favorite the ones you want to drill.</p>
+        </div>
+
+        <div id="buttonGrid" class="button-grid"></div>
+      </div>
+    </section>
+
+    <aside class="right-panel">
+      <div class="panel detail-panel">
+        <div id="detailEmpty" class="detail-empty">
+          <h2>Select a button</h2>
+          <p>
+            Pick one from the board to see what it means, why it matters,
+            and how to apply it in real life.
+          </p>
+        </div>
+
+        <div id="detailContent" class="detail-content hidden">
+          <div class="detail-top">
+            <div>
+              <div id="detailCategory" class="category-tag"></div>
+              <h2 id="detailTitle"></h2>
+            </div>
+            <button id="favoriteBtn" class="btn">☆ Favorite</button>
+          </div>
+
+          <p id="detailSummary" class="detail-summary"></p>
+
+          <div class="detail-section">
+            <h3>What it means</h3>
+            <p id="detailMeaning"></p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Why it matters</h3>
+            <p id="detailWhy"></p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Use it today</h3>
+            <ul id="detailUseList"></ul>
+          </div>
+
+          <div class="detail-section">
+            <h3>Reflection prompt</h3>
+            <p id="detailPrompt" class="prompt-box"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel daily-panel">
+        <h2>Today’s Focus</h2>
+        <div id="dailyFocusCard" class="daily-focus-card"></div>
+      </div>
+
+      <div class="panel journal-panel">
+        <div class="journal-header">
+          <h2>Practice Journal</h2>
+          <button id="saveJournalBtn" class="btn primary">Save Note</button>
+        </div>
+
+        <label for="journalTitle">Title</label>
+        <input id="journalTitle" type="text" placeholder="Example: Used contrast in sales page copy" />
+
+        <label for="journalText">What happened?</label>
+        <textarea
+          id="journalText"
+          rows="7"
+          placeholder="Write what button you used, where, what happened, and what you learned..."
+        ></textarea>
+
+        <div class="journal-meta">
+          <small>Saved in your browser on this device.</small>
+        </div>
+      </div>
+
+      <div class="panel notes-panel">
+        <div class="journal-header">
+          <h2>Saved Notes</h2>
+          <button id="clearNotesBtn" class="btn danger">Clear All</button>
+        </div>
+        <div id="savedNotesList" class="saved-notes-list"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer wrap">
+    <p>
+      Built for GitHub Pages. Everything here runs in the browser with no backend.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
